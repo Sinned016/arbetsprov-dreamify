@@ -12,6 +12,7 @@ export default function Register() {
   });
   const [passwordError, setPasswordError] = useState("");
   const [registerError, setRegisterError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -47,6 +48,7 @@ export default function Register() {
 
     // Creating the account with my API route
     try {
+      setLoading(true);
       const response = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -58,13 +60,16 @@ export default function Register() {
       // Error handling
       if (!response.ok) {
         setRegisterError(data.message);
+        setLoading(false);
       } else {
         console.log(data.message);
         router.push("/auth/login");
+        setLoading(false);
       }
     } catch (err) {
       // Could add more error messages here to show the user
       console.log("Error creating account", err);
+      setLoading(false);
     }
   }
 
@@ -129,7 +134,7 @@ export default function Register() {
         )}
 
         <button className=" bg-red-500 px-3 py-2 rounded-full text-white hover:bg-red-600 duration-300 cursor-pointer">
-          Create Account
+          {loading ? "Loading..." : "Create account"}
         </button>
       </form>
 

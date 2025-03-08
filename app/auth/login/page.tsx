@@ -11,6 +11,7 @@ export default function Login() {
   });
   const [passwordError, setPasswordError] = useState("");
   const [loginError, setLoginError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -45,23 +46,30 @@ export default function Login() {
     }
 
     // Login and set the JWT with my API route
-    const response = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(account),
-    });
+    try {
+      setLoading(true);
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(account),
+      });
 
-    const data = await response.json();
-    console.log("response: ", response);
-    console.log("data: ", data);
+      const data = await response.json();
 
-    if (!response.ok) {
-      setLoginError(data.message);
-    } else {
-      // Set JWT token in localStorage, from data.token
-      console.log(data.message);
-      localStorage.setItem("token", data.token);
-      router.push("/");
+      if (!response.ok) {
+        setLoginError(data.message);
+        setLoading(false);
+      } else {
+        // Set JWT token in localStorage, from data.token
+        console.log(data.message);
+        localStorage.setItem("token", data.token);
+        router.push("/");
+        setLoading(false);
+      }
+    } catch (err) {
+      // Could add more error messages here to show the user
+      console.log("Error creating account", err);
+      setLoading(false);
     }
   }
 
@@ -111,7 +119,7 @@ export default function Login() {
         )}
 
         <button className=" bg-red-500 px-3 py-2 rounded-full text-white hover:bg-red-600 duration-300 cursor-pointer">
-          Log in
+          {loading ? "Loading..." : "Log in"}
         </button>
       </form>
 
