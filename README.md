@@ -15,4 +15,4 @@ Skapa en enklare inloggningssida i Next.js (Frontend) + Node.js (Backend) enligt
 
 Valde att sätta JWT token i localStorage genom att jag är van med det från min utbildning KYH. Men genom att jag gjorde det så tvingades jag att använda useEffect genom att det ända sättet att hämta JWT tokenen är på clienten.
 
-Jag har försökt dela upp mina sida i komponenter så att min hemsida inte behöver vara "use client".
+Jag har försökt dela upp det mesta i komponenter så att allt inte blir "use client".
