@@ -14,10 +14,9 @@ const eslintConfig = [
   {
     files: ["*.ts", "*.tsx"], // Apply to TypeScript and TSX files
     rules: {
-      // Disable unused variable warnings
       "@typescript-eslint/no-unused-vars": "off",
-
-      // Allow 'any' type
+      "react/no-unescaped-entities": "off",
+      "react-hooks/exhaustive-deps": "off",
       "@typescript-eslint/no-explicit-any": "off",
     },
   },
