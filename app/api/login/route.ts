@@ -42,7 +42,7 @@ export const POST = async (request: Request) => {
       JSON.stringify({ message: "Login successful", token: token }),
       { status: 200 }
     );
-  } catch (err: any) {
+  } catch (err) {
     return new NextResponse(
       JSON.stringify({ message: "Error logging in", err }),
       { status: 500 }

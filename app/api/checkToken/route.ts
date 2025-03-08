@@ -26,7 +26,7 @@ export const GET = async (request: Request) => {
           status: 200,
         }
       );
-    } catch (err: any) {
+    } catch (err) {
       return new NextResponse(
         JSON.stringify({ message: "Invalid token", err }),
         {
@@ -34,7 +34,7 @@ export const GET = async (request: Request) => {
         }
       );
     }
-  } catch (err: any) {
+  } catch (err) {
     return new NextResponse(
       JSON.stringify({ message: "Error verifying token", err }),
       { status: 500 }
