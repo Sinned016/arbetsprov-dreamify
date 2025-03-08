@@ -27,9 +27,12 @@ export const GET = async (request: Request) => {
         }
       );
     } catch (err: any) {
-      return new NextResponse(JSON.stringify({ message: "Invalid token" }), {
-        status: 401,
-      });
+      return new NextResponse(
+        JSON.stringify({ message: "Invalid token", err }),
+        {
+          status: 401,
+        }
+      );
     }
   } catch (err: any) {
     return new NextResponse(
