@@ -19,9 +19,14 @@ export const POST = async (request: Request) => {
     const existingUser = await User.findOne({ email: body.email });
 
     if (!existingUser) {
-      return new NextResponse(JSON.stringify({ message: "Invalid Email" }), {
-        status: 404,
-      });
+      return new NextResponse(
+        JSON.stringify({
+          message: "Account not found, please create an account.",
+        }),
+        {
+          status: 404,
+        }
+      );
     }
 
     const isPasswordValid = await bcrypt.compare(
