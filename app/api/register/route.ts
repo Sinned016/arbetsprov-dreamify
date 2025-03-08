@@ -37,7 +37,7 @@ export const POST = async (request: Request) => {
       JSON.stringify({ message: "User created", user: newUser }),
       { status: 201 }
     );
-  } catch (err) {
+  } catch (err: any) {
     return new NextResponse(
       JSON.stringify({ message: "Error creating user", err }),
       { status: 500 }

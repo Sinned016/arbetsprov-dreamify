@@ -2,7 +2,6 @@ import connect from "@/lib/db";
 import User from "@/lib/models/user";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
 import { signJwt } from "@/lib/signJwt";
 
 // What to do list.
@@ -43,7 +42,7 @@ export const POST = async (request: Request) => {
       JSON.stringify({ message: "Login successful", token: token }),
       { status: 200 }
     );
-  } catch (err) {
+  } catch (err: any) {
     return new NextResponse(
       JSON.stringify({ message: "Error logging in", err }),
       { status: 500 }

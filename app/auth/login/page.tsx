@@ -120,7 +120,7 @@ export default function Login() {
           href="/auth/register"
           className="font-bold text-purple-900 hover:underline text-sm"
         >
-          Don't have an account?
+          Don&apos;t have an account?
         </Link>
       </div>
     </div>

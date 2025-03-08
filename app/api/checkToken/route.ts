@@ -26,12 +26,12 @@ export const GET = async (request: Request) => {
           status: 200,
         }
       );
-    } catch (err) {
+    } catch (err: any) {
       return new NextResponse(JSON.stringify({ message: "Invalid token" }), {
         status: 401,
       });
     }
-  } catch (err) {
+  } catch (err: any) {
     return new NextResponse(
       JSON.stringify({ message: "Error verifying token", err }),
       { status: 500 }
