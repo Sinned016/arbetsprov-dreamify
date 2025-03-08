@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arbetsprob från Dreamify
 
-## Getting Started
+Skapa en enklare inloggningssida i Next.js (Frontend) + Node.js (Backend) enligt följande kravställning:
 
-First, run the development server:
+1. Användaren loggar in med e-post och lösenord via ett formulär. Lösenordet måste vara minst 8 tecken och innehålla minst en siffra. (Användarens uppgifter behöver nödvändigtvis inte hämtas från någon riktig databas, även om MongoDB är en bonus, men du avgör hur detta hanteras)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Vid felaktiga inloggningsuppgifter skall ett felmeddelande visas. Om lösenordet inte uppfyller ovanstående krav ska ett felmeddelande också visas.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Vid korrekta inloggningsuppgifter ska användaren skickas till en tack-sida på en ny URL
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. På tack-sidan ska det finnas en "logga ut" knapp. Klickar man på den ska man loggas ut och skickas tillbaka till inloggningssidan. Försöker man gå tillbaka till tack-sidan efter utloggning skett ska man dirigeras till inloggningssidan.
+   Koden skall mejlas till mig i en zip-fil inklusive instruktioner hur den körs.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Noter:
 
-## Learn More
+Valde att sätta JWT token i localStorage genom att jag är van med det från min utbildning KYH. Men genom att jag gjorde det så tvingades jag att använda useEffect genom att det ända sättet att hämta JWT tokenen är på clienten.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Jag har försökt dela upp mina sida i komponenter så att min hemsida inte behöver vara "use client".
