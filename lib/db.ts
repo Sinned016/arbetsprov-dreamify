@@ -21,9 +21,14 @@ const connect = async () => {
       bufferCommands: true,
     });
     console.log("Connected");
-  } catch (err: any) {
-    console.log("Error: ", err);
-    throw new Error("Error: ", err);
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error("Error: ", err.message);
+      throw new Error(err.message);
+    } else {
+      console.error("Unexpected error: ", err);
+      throw new Error("Unknown error occurred during DB connection.");
+    }
   }
 };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
 export default function CheckAuth({ children }: { children: ReactNode }) {
@@ -37,6 +37,7 @@ export default function CheckAuth({ children }: { children: ReactNode }) {
         }
       } catch (err) {
         router.push("/auth/login");
+        console.log(err);
       }
     }
 
