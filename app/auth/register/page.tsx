@@ -107,7 +107,7 @@ export default function Register() {
         </div>
 
         <div className="flex flex-col">
-          <p className="text-sm font-bold mb-2">Password*</p>
+          <p className="text-sm font-bold mb-2 text-black">Password*</p>
           <input
             className="border rounded-xl px-3 py-2 w-full border-neutral-600 placeholder:text-black/50"
             name="password"
