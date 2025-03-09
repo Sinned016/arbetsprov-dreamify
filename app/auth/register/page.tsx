@@ -29,20 +29,18 @@ export default function Register() {
 
   async function handleRegister(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setPasswordError("");
+    setRegisterError("");
 
     // Checking if password is atleast 8 characters long
     if (account.password.length < 8) {
-      setPasswordError(
-        "Password must be atleast 8 characters long and include a number"
-      );
+      setPasswordError("Password must be atleast 8 characters long");
       return;
     }
 
     // Checking if password has a number in it
     if (!account.password.match(/\d/)) {
-      setPasswordError(
-        "Password must be atleast 8 characters long and include a number"
-      );
+      setPasswordError("Password must include a number");
       return;
     }
 
