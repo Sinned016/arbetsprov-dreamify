@@ -27,11 +27,11 @@ export default function WelcomeMessage() {
   return (
     <div>
       {loggedinUser ? (
-        <h1 className="text-center text-3xl font-bold">
+        <h1 className="text-center text-3xl font-bold text-black">
           Welcome {loggedinUser}!
         </h1>
       ) : (
-        <h1 className="text-center text-3xl font-bold">
+        <h1 className="text-center text-3xl font-bold text-black">
           Thank you for logging in!
         </h1>
       )}

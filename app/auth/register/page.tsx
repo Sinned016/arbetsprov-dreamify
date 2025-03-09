@@ -73,7 +73,7 @@ export default function Register() {
 
   return (
     <div className="w-full border rounded-xl border-neutral-600 p-6 mt-24 bg-white drop-shadow-xl">
-      <h1 className="text-3xl font-bold text-center mb-2">
+      <h1 className="text-3xl font-bold text-center mb-2 text-black">
         Create new account
       </h1>
       <form
@@ -81,9 +81,9 @@ export default function Register() {
         onSubmit={(e) => handleRegister(e)}
       >
         <div className="flex flex-col">
-          <p className="text-sm font-bold mb-2">Email*</p>
+          <p className="text-sm font-bold mb-2 text-black">Email*</p>
           <input
-            className="border rounded-xl px-3 py-2 w-full"
+            className="border rounded-xl px-3 py-2 w-full border-neutral-600 placeholder:text-black/50"
             name="email"
             value={account.email}
             onChange={(e) => handleChange(e)}
@@ -94,9 +94,9 @@ export default function Register() {
         </div>
 
         <div className="flex flex-col">
-          <p className="text-sm font-bold mb-2">Username*</p>
+          <p className="text-sm font-bold mb-2 text-black">Username*</p>
           <input
-            className="border rounded-xl px-3 py-2 w-full"
+            className="border rounded-xl px-3 py-2 w-full border-neutral-600 placeholder:text-black/50"
             name="username"
             value={account.username}
             onChange={(e) => handleChange(e)}
@@ -109,7 +109,7 @@ export default function Register() {
         <div className="flex flex-col">
           <p className="text-sm font-bold mb-2">Password*</p>
           <input
-            className="border rounded-xl px-3 py-2 w-full"
+            className="border rounded-xl px-3 py-2 w-full border-neutral-600 placeholder:text-black/50"
             name="password"
             value={account.password}
             onChange={(e) => handleChange(e)}
